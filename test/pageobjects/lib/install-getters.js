@@ -9,5 +9,4 @@ const PageElement = require('./page-element');
         });
     }
 }
-
 module.exports = installGetters; 
