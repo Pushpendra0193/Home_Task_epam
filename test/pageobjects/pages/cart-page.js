@@ -11,7 +11,7 @@ class CartPage {
     }
 
     async getTheProductPrice() {
-       await this.itemPrice.getText();
+      return await this.itemPrice.getText();
 
     }
 

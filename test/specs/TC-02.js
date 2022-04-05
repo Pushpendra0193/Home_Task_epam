@@ -24,7 +24,7 @@ describe('My Login application', () => {
        await CheckoutPage.continueButton.click();
        assert.equal( await checkoutOverviewPage.getTheProductPrice(), expectedProice, 'Overview product price is same as expected price');
        await checkoutOverviewPage.finishButon.click();
-       assert.isTrue( await thankyouPage.backHomeButton.isDisplayed(),'Thank you page is displayed');
+       assert.isTrue( await thankyouPage.backHomeButton.isDisplayed(), 'Thank you page is displayed');
     });
 });
 

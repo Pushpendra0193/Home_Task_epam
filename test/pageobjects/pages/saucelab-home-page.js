@@ -1,6 +1,6 @@
 const installGetters = require('../lib/install-getters');
 const SELECTOR = {
-    // addToCartButton: (itemName) => `#add-to-cart-sauce-labs-${itemName}`,
+    // addToCartButton: itemName => `#add-to-cart-sauce-labs-${itemName}`,
     addToCartButton: '#add-to-cart-sauce-labs-backpack',
     cartbutton: '.shopping_cart_link',
     // itemPrice: (item) => `//button[@id="add-to-cart-sauce-labs-${item}"]/preceding-sibling::div`,
@@ -8,14 +8,14 @@ const SELECTOR = {
     checkoutButton: '#checkout'
 }
 
-class HomePage {
+class SauceHomePage {
     constructor() {
         this.selector=SELECTOR;
         installGetters.call(this, SELECTOR);
     }
 
-    async clickOnAddTOCartButton() {
-    //    await this.addToCartButton(item).click();
+    async clickOnAddTOCartButton(item) {
+       await this.addToCartButton(item).click();
        await this.addToCartButton.click();
     }
 
@@ -23,9 +23,11 @@ class HomePage {
       await  this.cartbutton.click()
     } 
     
-    async getTheProductPrice() {
-        await this.itemPrice.getText();
+    async getTheProductPrice(item) {
+        // return await this.itemPrice(item).getText();
+        return await this.itemPrice.getText();
+
     }
 }
 
-module.exports = new HomePage();
+module.exports = new SauceHomePage();

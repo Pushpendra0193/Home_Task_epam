@@ -1,12 +1,13 @@
 const PageElement = require('./page-element');
 
- async function installGetters(selectorObjects) {
-    for (const key of  Object.keys(selectorObjects)) {
+ async function installGetters(selectorObject) {
+    for (const key of  Object.keys(selectorObject)) {
         await  Object.defineProperty(this, key, {
             get () {
-                return new PageElement(selectorObjects[key])
+                return new PageElement(selectorObject[key])
             }
         });
     }
 }
+ 
 module.exports = installGetters; 
